@@ -7,42 +7,42 @@ using namespace std;
 
 struct StMet
 {
-    char nameStM[29];
-    char nameLineStM[40];
-    int NumLineStM;
+	char nameStM[29];
+	char nameLineStM[40];
+	int NumLineStM;
 };
 struct Area
 {
-    char nameArea[50];
-    StMet stat;
+	char nameArea[60];
+	StMet stat;
 };
 
 int main(int argc, char* argv[])
 {
-    Area*pG;
-    int n;
-    printf("n=");
-    scanf("%d",&n);
-    pG = (Area *)malloc(n*sizeof(Area));
-    for (int i = 0; i<n; i++)
-    {
-        printf_s("Area number is %d", i + 1);
-		printf_s("\nArea name is ");
+	Area*pG;
+	int n;
+	printf_s("n=");
+	scanf_s("%d", &n);
+	pG = (Area *)malloc(n * sizeof(Area));
+	for (int i = 0; i<n; i++)
+	{
+		printf_s("\nArea id number is %d", i + 1);
+		printf_s("\nArea name: ");
 		_flushall();
-		gets_s(pG[i].nameArea, 127);
-		printf_s("Information about Metro station in this area: ");
+		gets_s(pG[i].nameArea, 59);
+		printf_s("\nInformation about Metro station in this area: ");
 		printf_s("\nName of Metro station: ");
 		fflush(stdin);
 		gets_s(pG[i].stat.nameStM, 28);
-		printf_s("Number of Metro line: ");
+		printf_s("\nNumber of Metro line: ");
 		scanf_s("%d", &pG[i].stat.NumLineStM);
-		printf_s("Name of Metro line: ");
+		printf_s("\nName of Metro line: ");
 		gets_s(pG[i].stat.nameLineStM, 39);
-    }
-for (int i = 0; i<n; i++)
+	}
+	for (int i = 0; i<n; i++)
 		printf_s("\n%s %s %d %s",
-		pG[i].nameArea, pG[i].stat.nameStM,
-		pG[i].stat.NumLineStM, pG[i].stat.nameLineStM);
+			pG[i].nameArea, pG[i].stat.nameStM,
+			pG[i].stat.NumLineStM, pG[i].stat.nameLineStM);
 	char AreaName[49];
 	printf_s("\nArea name: ");
 	fflush(stdin);
@@ -50,9 +50,10 @@ for (int i = 0; i<n; i++)
 	int k = 0;
 	for (int i = 0; i<n; i++)
 		if (strcmp(AreaName, pG[i].nameArea) == 0)
-			if (pG[i].stat.NumLineStM=8) k++;
+			if (pG[i].stat.NumLineStM = 8)
+			 k++;
 	if (k) printf_s("\nk=%d\n", k);
 	else printf_s("Not found\n");
-	free(pG);
 	system("pause");
+	free(pG);
 }
