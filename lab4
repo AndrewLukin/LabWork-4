@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 		printf_s("Number of Metro line: ");
 		scanf_s("%d", &pG[i].stat.NumLineStM);
 		printf_s("Name of Metro line: ");
-		gets_s(&pG[i].stat.nameLineStM, 39);
+		gets_s(pG[i].stat.nameLineStM, 39);
     }
 for (int i = 0; i<n; i++)
 		printf_s("\n%s %s %d %s",
