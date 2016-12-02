@@ -19,7 +19,7 @@ struct Area
 
 int main(int argc, char* argv[])
 {
-	Area*pG;
+	Area*pG=0;
 	int n;
 	printf_s("n=");
 	scanf_s("%d", &n);
@@ -28,16 +28,16 @@ int main(int argc, char* argv[])
 	{
 		printf_s("\nArea id number is %d", i + 1);
 		printf_s("\nArea name: ");
+		cin >> pG[i].nameArea;
 		_flushall();
-		gets_s(pG[i].nameArea, 59);
 		printf_s("\nInformation about Metro station in this area: ");
 		printf_s("\nName of Metro station: ");
 		fflush(stdin);
-		gets_s(pG[i].stat.nameStM, 28);
+		cin>>pG[i].stat.nameStM;
 		printf_s("\nNumber of Metro line: ");
 		scanf_s("%d", &pG[i].stat.NumLineStM);
 		printf_s("\nName of Metro line: ");
-		gets_s(pG[i].stat.nameLineStM, 39);
+		cin>>pG[i].stat.nameLineStM;
 	}
 	for (int i = 0; i<n; i++)
 		printf_s("\n%s %s %d %s",
@@ -46,13 +46,13 @@ int main(int argc, char* argv[])
 	char AreaName[49];
 	printf_s("\nArea name: ");
 	fflush(stdin);
-	gets_s(AreaName, 63);
+	cin>>AreaName;
 	int k = 0;
 	for (int i = 0; i<n; i++)
 		if (strcmp(AreaName, pG[i].nameArea) == 0)
 			if (pG[i].stat.NumLineStM = 8)
-			 k++;
-	if (k) printf_s("\nk=%d\n", k);
+				k++;
+	if (k) printf_s("Stations on 8 metroline in this area: %d\n", k);
 	else printf_s("Not found\n");
 	system("pause");
 	free(pG);
